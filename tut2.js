@@ -66,3 +66,64 @@ testArguments(1,2,3)
  * It is not exactly the same thing as arguments but if you want 
    to use n number of arguments in your function you can do it like above.
  */
+
+   /**
+    //Using This keyword in arrow functions:-
+  
+    * Using this keyword in regular function refers to the function where it's called.
+    * On the other hand, arrow functions do not have this keyword and it always refers to the parent scope.
+    */
+
+function Person() {
+  this.name = 'Jack',
+  this.age = 25,
+  this.sayHello = function () {
+  // this is accessible
+    console.log('Hello', this.name);
+    function innerFunction() {
+      // this refers to the global object
+      console.log(this.age);
+      console.log(this);
+      }
+  innerFunction(); 
+ }
+}
+let x = new Person();
+x.sayHello();
+
+// Output:
+// Hello Jack
+// undefined
+// Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+/**
+ * Now if we change the innerFunction to an arrow function that will 
+   have the capability to use the parent scope.
+ */
+   
+   function Person() {
+    this.name = 'Jack',
+    this.age = 25,
+    this.sayHello = function () {
+      // this is accessible
+      console.log('Hello', this.name);
+      const innerFunction = () => {
+        // this refers to the global object
+        console.log(this.age); // 25
+        console.log(this); // References Person 
+      }
+      innerFunction(); 
+   }
+}
+let xx = new Person();
+xx.sayHello();
+
+/**
+ * Output:-
+ * 
+ * Hello Jack
+ * 25
+ * Person {name: 'Jack', age: 25, sayHello: ƒ}
+ */
+
+
