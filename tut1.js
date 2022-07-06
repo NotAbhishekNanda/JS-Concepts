@@ -4,7 +4,7 @@ console.log("Here We are listening from tut -1 file");
  * Let vs Var vs Const
  */
 
-//Let is Block Scoped While var is function scoped.
+//1. Let is Block Scoped While var is function scoped.
 
 function test() {
   var x = "x";
@@ -35,7 +35,7 @@ for (var i = 0; i < 3; i++) {
 console.log(i); // 3
 console.log(j); // 4
 
-for (let k = 0; k < 3; k++) {
+for (let k = 0; k < 3; k++) { // l and k are known in this block only so as we try to capture K and l outside the block scope it is giving us error. 
   let l = k * 2;
 }
 console.log(typeof k); // undefined
@@ -48,7 +48,7 @@ console.log(typeof l); // undefined
 //Next comparison let vs var:
 
 /**
- * let does not allow redeclare variables
+ 2 * let does not allow redeclare variables
  */
 // Variable declared with var can be redeclared:
 
@@ -84,7 +84,7 @@ console.log(a); // 5
 console.log(a); // 5
 
 /**
- * Let does not allow hoisting
+ 3 * Let does not allow hoisting
  * A variable declared with var allows hoisting to the top of the scope of the script.
  */
 
