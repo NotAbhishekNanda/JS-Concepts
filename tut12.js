@@ -28,16 +28,28 @@ function getDatas(){
     }, 1000);
 }
 
-function createData(newdata, callback){
-    setTimeout(() => {
-        datas.push(newdata);
-        console.log(newdata);
-        callback();
+function createData(newdata){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            datas.push(newdata);
+            let error = false;
+            if(!error){
+                resolve();
+            }else{
+                reject("Error Occured!!")
+            }
+        }, 2000);  
+    })
+    //Callback Approach:
+    // setTimeout(() => {
+    //     datas.push(newdata);
+    //     console.log(newdata);
+    //     callback();
 
-    }, 2000);
+    // }, 2000);
 }
 
-createData({name: 'Sai', Profession: 'Civil servant'}, getDatas)
+createData({name: 'Sai', Profession: 'Civil servant'}).then(getDatas).catch(err => console.log(err));
 
 // getDatas();
 
