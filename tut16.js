@@ -19,3 +19,5 @@ const paginate = (items, itemsPerPage = 10) => {
 console.log(paginate(articles));
 console.log(paginate(articles, 7));
 
+// P:S- We have used ternary operator to paginate based on some condition in the next tutorial schema.
+
