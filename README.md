@@ -30,6 +30,7 @@ Here's an example:
 In this example, there is a parent div element and a child button element inside it. Two event listeners are attached to the elements: one to the parent element, and one to the child element. When you click the child button element, the stopPropagation method is called on the event object to prevent the event from bubbling up to the parent element. As a result, only the click event listener on the child element is triggered, and the console output is:
 
 `Clicked child`
+
 On the other hand, stopImmediatePropagation is a method that does everything that stopPropagation does, but it also prevents other event listeners on the current element from being triggered. When you call stopImmediatePropagation on an event object, not only is the event propagation stopped, but also any other event listeners attached to the current element are skipped.
 
 Here's an example:
